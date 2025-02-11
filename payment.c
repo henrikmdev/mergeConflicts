@@ -7,6 +7,8 @@ double calculate_total(double price, int quantity) {
         total *= 0.9;  // Apply 10% discount
     }
 
+    total *= 1.05;  // Bob's new feature: Apply 5% tax
+
     return total;
 }
 
