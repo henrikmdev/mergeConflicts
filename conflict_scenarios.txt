@@ -1,0 +1,39 @@
+Main Scenario:
+       A---B---C (feature)
+      /
+ D---E---F---G (main)
+
+=============================================
+Rebase:
+    Step 1:
+          A'--B'--C' (feature, rebased)
+         /
+    D---E---F---G (main)
+
+    Step 2:
+     D---E---F---G---A'---B'---C' (feature)
+=============================================
+Merge:
+          A---B---C (feature)
+         /         \
+    D---E---F---G---M (main)
+=============================================
+Git stash pop:
+       A---B---C---{???} (feature)
+      /
+ D---E---F---G (main)
+
+git stash
+    Stash list:
+    -{???}
+          A---B---C (feature)
+         /
+    D---E---F---G (main)
+
+git rebase main
+    Stash list:
+    -{???}
+    D---E---F---G---A'---B'---C' (feature)
+
+ git stash pop
+    D---E---F---G---A'---B'---C'---{???} (feature)
